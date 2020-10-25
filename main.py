@@ -8,7 +8,6 @@ A todo list program that let's a user add, remove and view their list
 
 # TODOS:
 # if they enter a string use isnumeric = false before you assign cast to int
-# print user friendly numbers instead of python friendly starting at 0
 
 
 def add_to_list(todo_list):
@@ -25,7 +24,7 @@ def add_to_list(todo_list):
 def view_list(printable_list):
     ''' this is a function that takes a generic list and formats it to print'''
     # start number at -1 so it works with proper indices
-    number = -1
+    number = 0
     # if the list has nothing in it, but they choose the option let them know they don't have anything on the list
     if len(printable_list) == 0:
         print('\nYou do not have anything on your list!')
@@ -42,6 +41,9 @@ def remove_from_list(todo_list, completed_list):
     view_list(todo_list)
     # ask the user what they want to remove
     user_choice = int(input('\nWhat number would you like to remove? '))
+    # subtract 1 so that i can print user friendly numbers
+    user_choice = user_choice - 1
+    # assign item to the user choice (minus 1)
     item = todo_list[user_choice]
     # remove that item from the todo list
     todo_list.remove(item)
